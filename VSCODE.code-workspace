@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../DIGI-CLOCK"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "DIGI-CLOCK"
+	}
+}
