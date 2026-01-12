@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Calculator</title>
+</head>
+<body style="margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px;">
+    
+    <div class="calculator" style="background: #2d2d2d; border-radius: 30px; padding: 25px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); width: 100%; max-width: 380px;">
+        
+        <div class="header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <div class="night-mode-indicator" style="display: flex; align-items: center; gap: 8px; color: #888; font-size: 12px;">
+                <span style="font-size: 14px;">🌙</span>
+                <span>Night mode</span>
+            </div>
+        </div>
+        <div class="display-container" style="background: #1a1a1a; border-radius: 20px; padding: 30px 20px; margin-bottom: 20px; min-height: 120px; display: flex; flex-direction: column; justify-content: flex-end;">
+            <div class="display-expression" id="expression" style="color: #666; font-size: 18px; text-align: right; margin-bottom: 10px; min-height: 25px; overflow: hidden; text-overflow: ellipsis;"></div>
+            <div class="display" id="display" style="color: #ffffff; font-size: 56px; text-align: right; font-weight: 300; overflow: hidden; text-overflow: ellipsis;">0</div>
+        </div>
+        <div class="buttons" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+            <button class="btn-clear" data-action="clear" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ff6b6b; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">C</button>
+            <button data-action="backspace" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">⌫</button>
+            <button data-operator="%" class="btn-operator" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">%</button>
+            <button data-operator="/" class="btn-operator" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">/</button>
+            
+            <button data-number="7" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">7</button>
+            <button data-number="8" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">8</button>
+            <button data-number="9" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">9</button>
+            <button data-operator="*" class="btn-operator" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">×</button>
+            
+            <button data-number="4" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">4</button>
+            <button data-number="5" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">5</button>
+            <button data-number="6" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">6</button>
+            <button data-operator="-" class="btn-operator" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">−</button>
+            
+            <button data-number="1" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">1</button>
+            <button data-number="2" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">2</button>
+            <button data-number="3" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">3</button>
+            <button data-operator="+" class="btn-operator" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">+</button>
+            
+            <button data-number="0" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">0</button>
+            <button data-action="decimal" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">.</button>
+            <button data-action="equals" class="btn-equals" style="background: #ffb5b5; color: #2d2d2d; border: none; border-radius: 50%; font-size: 24px; font-weight: 500; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">=</button>
+            <button data-action="negate" style="background: #3a3a3a; border: none; border-radius: 50%; color: #ffb5b5; font-size: 24px; font-weight: 400; cursor: pointer; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; outline: none; user-select: none;">+/−</button>
+        </div>
+    </div>
+
+    <script src="calc.js"></script>
+</body>
+</html>
