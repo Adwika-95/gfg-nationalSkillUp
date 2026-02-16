@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - JHOLA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="main-header">
+    <nav class="top-nav">
+      <div class="logo">
+        <a href="products.html">
+          <span class="logo-icon">👜</span>
+          <span class="logo-text">JHOLA</span>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="products.html" class="nav-item">PRODUCTS</a>
+        <a href="cart.html" class="nav-item">
+          CART <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <a href="checkout.html" class="nav-item active">CHECKOUT</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header-section">
+    <h1>💳 Checkout</h1>
+    <p>Complete your order</p>
+  </section>
+
+  <!-- Checkout Content -->
+  <section class="checkout-page-container">
+    <div class="checkout-wrapper">
+
+      <!-- Checkout Form -->
+      <div class="checkout-form-section">
+        <h2>Customer Information</h2>
+        <p class="section-note">This data is stored in Session Storage (temporary)</p>
+
+        <form id="checkoutForm" onsubmit="handleCheckout(event)">
+          
+          <div class="form-group">
+            <label for="customerName">Full Name *</label>
+            <input 
+              type="text" 
+              id="customerName" 
+              name="customerName" 
+              required 
+              placeholder="Enter your full name"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="customerEmail">Email *</label>
+            <input 
+              type="email" 
+              id="customerEmail" 
+              name="customerEmail" 
+              required 
+              placeholder="your.email@example.com"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="customerPhone">Phone Number *</label>
+            <input 
+              type="tel" 
+              id="customerPhone" 
+              name="customerPhone" 
+              required 
+              placeholder="+91 98765 43210"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="customerAddress">Delivery Address *</label>
+            <textarea 
+              id="customerAddress" 
+              name="customerAddress" 
+              required 
+              rows="3"
+              placeholder="Enter your complete delivery address"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="deliveryOption">Delivery Option *</label>
+            <select id="deliveryOption" name="deliveryOption" required>
+              <option value="">Select delivery option</option>
+              <option value="standard">Standard Delivery (3-5 days) - Free</option>
+              <option value="express">Express Delivery (1-2 days) - ₹200</option>
+              <option value="overnight">Overnight Delivery - ₹500</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="paymentMethod">Payment Method *</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+              <option value="">Select payment method</option>
+              <option value="cod">Cash on Delivery</option>
+              <option value="card">Credit/Debit Card</option>
+              <option value="upi">UPI</option>
+              <option value="netbanking">Net Banking</option>
+            </select>
+          </div>
+
+          <button type="submit" class="place-order-btn">
+            Place Order
+          </button>
+
+          <button type="button" class="restore-session-btn" onclick="restoreSessionData()">
+            🔄 Restore Session Data
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="checkout-summary-section">
+        <h2>Order Summary</h2>
+        <p class="section-note">Data retrieved from Local Storage</p>
+
+        <div id="checkoutOrderSummary">
+          <!-- Order items will be inserted here -->
+        </div>
+
+        <div class="checkout-summary-totals">
+          <div class="summary-row">
+            <span>Subtotal:</span>
+            <span id="checkoutSubtotal">₹0</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Shipping:</span>
+            <span id="checkoutShipping">Free</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Tax (18%):</span>
+            <span id="checkoutTax">₹0</span>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-row total-row">
+            <span>Total:</span>
+            <span id="checkoutTotal">₹0</span>
+          </div>
+        </div>
+
+        <div id="sessionDataDisplay" class="session-data-box" style="display: none;">
+          <h3>📦 Saved Session Data</h3>
+          <div id="sessionDataContent"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Storage Demonstration -->
+  <section class="storage-info-section">
+    <div class="info-box-grid">
+      <div class="info-box">
+        <h3>💾 Local Storage (Cart Data)</h3>
+        <p><strong>Persistent Storage</strong></p>
+        <code>localStorage.getItem('jholaCart')</code>
+        <p class="info-note">✓ Survives page refresh</p>
+        <p class="info-note">✓ Survives browser close</p>
+      </div>
+      <div class="info-box">
+        <h3>📝 Session Storage (Checkout Data)</h3>
+        <p><strong>Temporary Storage</strong></p>
+        <code>sessionStorage.setItem('checkoutData', data)</code>
+        <p class="info-note">✓ Survives page refresh</p>
+        <p class="info-note">✗ Clears on browser close</p>
+        <p class="info-note">✗ Not available in new tabs</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 JHOLA - Lab 12: Local Storage & Session Storage Demo</p>
+  </footer>
+
+  <script src="checkout.js"></script>
+</body>
+</html>

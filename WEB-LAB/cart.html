@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - JHOLA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="main-header">
+    <nav class="top-nav">
+      <div class="logo">
+        <a href="products.html">
+          <span class="logo-icon">👜</span>
+          <span class="logo-text">JHOLA</span>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="products.html" class="nav-item">PRODUCTS</a>
+        <a href="cart.html" class="nav-item active">
+          CART <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <a href="checkout.html" class="nav-item">CHECKOUT</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header-section">
+    <h1>🛒 Shopping Cart</h1>
+    <p>Review your items before checkout</p>
+  </section>
+
+  <!-- Cart Content -->
+  <section class="cart-page-container">
+    <div class="cart-content-wrapper">
+      
+      <!-- Cart Items Table -->
+      <div class="cart-items-section">
+        <div class="section-header-cart">
+          <h2>Cart Items</h2>
+          <button class="clear-cart-btn" onclick="clearCart()">🗑️ Clear Cart</button>
+        </div>
+
+        <div id="cartItemsContainer">
+          <!-- Cart items will be dynamically inserted here -->
+        </div>
+
+        <div id="emptyCartMessage" style="display: none;">
+          <div class="empty-cart-box">
+            <p class="empty-icon">🛍️</p>
+            <h3>Your cart is empty</h3>
+            <p>Add some products to get started</p>
+            <a href="products.html" class="continue-shopping-btn">Continue Shopping</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Summary -->
+      <div class="cart-summary-section">
+        <h2>Order Summary</h2>
+        
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="subtotalAmount">₹0</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Shipping:</span>
+          <span id="shippingAmount">₹0</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Tax (18%):</span>
+          <span id="taxAmount">₹0</span>
+        </div>
+
+        <div class="summary-divider"></div>
+
+        <div class="summary-row total-row">
+          <span>Total:</span>
+          <span id="totalAmount">₹0</span>
+        </div>
+
+        <a href="checkout.html" class="checkout-btn" id="checkoutBtn">
+          Proceed to Checkout →
+        </a>
+
+        <a href="products.html" class="continue-shopping-link">← Continue Shopping</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Storage Info -->
+  <section class="storage-info-section">
+    <div class="info-box">
+      <h3>💾 Local Storage Demo</h3>
+      <p><strong>Cart data is stored using:</strong></p>
+      <code>localStorage.setItem('jholaCart', JSON.stringify(cart))</code>
+      <p class="info-note">✓ Data persists even after closing the browser</p>
+      <p class="info-note">✓ Available across all pages</p>
+      <p class="info-note">✓ Retrieved using: localStorage.getItem('jholaCart')</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 JHOLA - Lab 12: Local Storage & Session Storage Demo</p>
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>

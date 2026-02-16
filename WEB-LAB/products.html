@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - JHOLA Shopping Cart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="main-header">
+    <nav class="top-nav">
+      <div class="logo">
+        <a href="products.html">
+          <span class="logo-icon">👜</span>
+          <span class="logo-text">JHOLA</span>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="products.html" class="nav-item active">PRODUCTS</a>
+        <a href="cart.html" class="nav-item">
+          CART <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <a href="checkout.html" class="nav-item">CHECKOUT</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header-section">
+    <h1>🛍️ Our Products</h1>
+    <p>Browse our collection of premium bags</p>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="products-container">
+    <div class="products-grid">
+
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="BAG1.jpg" alt="Pink Tote Bag">
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Pink Tote Bag</h3>
+          <p class="product-description">Casual Elegance</p>
+          <p class="product-price">₹1200</p>
+          <button class="add-to-cart-btn" onclick="addToCart(1, 'Pink Tote Bag', 1200, 'BAG1.jpg')">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="BAG2.jpg" alt="Red Floral Bag">
+          <span class="badge hot-badge">HOT</span>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Red Floral Bag</h3>
+          <p class="product-description">Statement Piece</p>
+          <p class="product-price">₹1800</p>
+          <button class="add-to-cart-btn" onclick="addToCart(2, 'Red Floral Bag', 1800, 'BAG2.jpg')">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="BAG3.jpg" alt="Crochet Handbag">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Crochet Handbag</h3>
+          <p class="product-description">Bohemian Chic</p>
+          <p class="product-price">₹1500</p>
+          <button class="add-to-cart-btn" onclick="addToCart(3, 'Crochet Handbag', 1500, 'BAG3.jpg')">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="BAG4.webp" alt="Lavender Handbag">
+          <span class="badge sale-badge">SALE</span>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Lavender Handbag</h3>
+          <p class="product-description">Classic Beauty</p>
+          <p class="product-price">₹2000</p>
+          <button class="add-to-cart-btn" onclick="addToCart(4, 'Lavender Handbag', 2000, 'BAG4.webp')">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="BAG5.jpg" alt="Classic Office Bag">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Classic Office Bag</h3>
+          <p class="product-description">Professional</p>
+          <p class="product-price">₹2200</p>
+          <button class="add-to-cart-btn" onclick="addToCart(5, 'Classic Office Bag', 2200, 'BAG5.jpg')">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="BAG6.webp" alt="Mini Sling Bag">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Mini Sling Bag</h3>
+          <p class="product-description">Compact & Cute</p>
+          <p class="product-price">₹900</p>
+          <button class="add-to-cart-btn" onclick="addToCart(6, 'Mini Sling Bag', 900, 'BAG6.webp')">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="BAG7.jpeg" alt="Luxury Handbag">
+          <span class="badge premium-badge">PREMIUM</span>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Luxury Handbag</h3>
+          <p class="product-description">Ultimate Luxury</p>
+          <p class="product-price">₹2500</p>
+          <button class="add-to-cart-btn" onclick="addToCart(7, 'Luxury Handbag', 2500, 'BAG7.jpeg')">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="BAG8.jpg" alt="Casual Tote">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Casual Tote</h3>
+          <p class="product-description">Everyday Essential</p>
+          <p class="product-price">₹1300</p>
+          <button class="add-to-cart-btn" onclick="addToCart(8, 'Casual Tote', 1300, 'BAG8.jpg')">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lab Info Section -->
+  <section class="lab-info-section">
+    <div class="lab-info-box">
+      <h3>📚 Lab 12: Local Storage & Session Storage</h3>
+      <div class="storage-demo">
+        <div class="demo-box">
+          <h4>🔵 Local Storage (Persistent)</h4>
+          <p><strong>Cart Data:</strong> Stored in localStorage</p>
+          <p>✓ Survives page refresh</p>
+          <p>✓ Survives browser close</p>
+          <p>✓ Available across all pages</p>
+        </div>
+        <div class="demo-box">
+          <h4>🟢 Session Storage (Temporary)</h4>
+          <p><strong>Checkout Data:</strong> Stored in sessionStorage</p>
+          <p>✓ Survives page refresh</p>
+          <p>✗ Clears on browser close</p>
+          <p>✓ Available in same tab only</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 JHOLA - Lab 12: Local Storage & Session Storage Demo</p>
+  </footer>
+
+  <script src="products.js"></script>
+</body>
+</html>
